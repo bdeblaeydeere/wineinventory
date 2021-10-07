@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Inventory</title>
+</head>
+<body>
+    <h1>Wine Show Page</h1>
+   Your Wine <%= wine.name %> <br>
+    <!-- <img src= pokemon.img % >  -->
+    <br />
+    <h2>Wine info</h2>
+    <ul>Producer: <%= wine.producerId %> </ul>
+    <ul>Vintage:  <%= wine.year %> </ul>
+    <ul>Price paid:  <%= wine.price %> </ul>
+    <ul>Quantity in stock:  <%= wine.quantity %> </ul>
+    <ul>Tasting notes:  <%= wine.tastingId %> </ul>
+    <ul>Your rating:  <%= wine.rating %> </ul>
+    <ul>Color:  <%= wine.color %> </ul>
+    <ul>From:  <%= wine.countryId %> </ul>
+    <ul>Purchased at:  <%= wine.sellerId %> </ul>
+    <ul>Additional comments:  <%= wine.generalNotes %> </ul><br />
+    <ul>Last Updated:  <%= wine.updatedAt %> </ul>
+
+
+    <!-- pokemon.Players.forEach((player, index) => {
+        <ul> <li> pokemon.Players[index].name  </li></ul>
+    })  -->
+    <br />
+
+     <!--  ADD DELETE FORM HERE-->
+    
+        <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE"/>
+    
+        </form>
+</body>
+</html>
