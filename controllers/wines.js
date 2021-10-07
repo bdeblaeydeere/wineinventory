@@ -5,7 +5,7 @@ const Wine = require('../models').Wine;
 const index = (req, res) => {
     Wine.findAll()
         .then(wines => {
-            res.render('index.ejs', {
+            res.render('wines/index.ejs', {
                 wines: wines,
         })
         console.log(wines)
