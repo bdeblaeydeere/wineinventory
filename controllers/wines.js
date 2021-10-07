@@ -1,4 +1,4 @@
-const Wines = require('../models').Wines;
+const Wine = require('../models').Wine;
 
 //Index Route
 
