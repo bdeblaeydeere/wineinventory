@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Inventory</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>Wine Inventory Index Page</h1>
+    <ul>
+        <% wines.forEach ((wine, index) => { %>
+        <li>
+            <%= wine.name %> <a href="/wines/<%= wine.id %>">Show Details</a>
+            <!--  ADD DELETE FORM HERE-->
+            
+            <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE"/>
+            </form> 
+        </li>
+        <% }) %>
+   <nav> 
+       <br />
+       <a href ="/wines/new">Add a new Pokemon</a>
+   </nav>
+
+</body>
+</html>
