@@ -51,6 +51,17 @@ const renderEdit = (req, res) => {
     })
 }
 
+//PUT function -- execute PUT method to update an existing wine changed from the renderEdit page in the Wines DB table
+const editWine = (req, res) => {
+    Wine.update (req.body, {
+        where: {id: req.params.index},
+        returning: true,
+    })
+    .then (wine => {
+        res.redirect ('/wines')
+    })
+}
+
 //Delete - remove an existing Wine from the Wines DB table
 const deleteWine = (req, res) => {
     Wine.destroy ({
@@ -68,4 +79,5 @@ module.exports = {
     postWine,
     deleteWine,
     renderEdit,
+    editWine,
 };
