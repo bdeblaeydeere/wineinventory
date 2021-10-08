@@ -22,13 +22,13 @@
         <ul>Your rating:  <input type="text" name="rating" value="<%= wine.rating %>" ></ul>
         <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
         <ul>Color: <select name="color" value="<%= wine.color %>">
-                <option value="Red">Red</option>
-                <option value="White">White</option>
-                <option value="Other">Other</option>
+                <option value="1">Red</option>
+                <option value="2">White</option>
+                <option value="3">Other</option>
             </select>
         </ul>
     
-        <ul>From:  <input type="text" name="countryId" value="<%= wine.countryId %>" ></ul>
+        <ul>From:  <input type="text" name="countryId" value="<%= wine.Country.countryName %>" ></ul>
         <ul>Purchased at:  <input type="text" name="sellerId" value="<%= wine.sellerId %>" ></ul>
         <ul>Additional comments:  <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul><br />
     

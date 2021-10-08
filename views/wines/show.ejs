@@ -28,13 +28,21 @@
     <!-- pokemon.Players.forEach((player, index) => {
         <ul> <li> pokemon.Players[index].name  </li></ul>
     })  -->
+    <h2> 
+        <form action="/wines/<%= wine.id %>/edit">
+        <input type="submit" value="Edit Wine"/>
+        <!-- <form action="https://google.com">
+            <input type="submit" value="Go to Google" /> -->
+        </form>
+        <!-- <a href ="/wines/<%= wine.id %>/edit">Edit this Wine</a> -->
+    </h2>
     <br />
 
      <!--  ADD DELETE FORM HERE-->
     
-        <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
+        <!-- <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE"/>
     
-        </form>
+        </form> -->
 </body>
 </html>

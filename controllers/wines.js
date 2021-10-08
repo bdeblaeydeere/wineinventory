@@ -19,8 +19,6 @@ const show = (req, res) => {
     
         //     model: Players,
         //     attributes: ['name']
-        // },
-        // ],
     })
     .then (wine => {
         res.render('wines/show.ejs', {
@@ -43,7 +41,10 @@ const postWine = (req, res) => {
 
 //Render Edit page - render the page to allow editing of an existing wine in the Wines DB table
 const renderEdit = (req, res) => {
-    Wine.findByPk (req.params.index)
+    Wine.findByPk (req.params.index, {
+        include: [Country]
+    })
+    
     .then (wine => {
         res.render ('wines/edit.ejs', {
             wine: wine
@@ -57,6 +58,19 @@ const editWine = (req, res) => {
         where: {id: req.params.index},
         returning: true,
     })
+    // .then(wine => {
+    //     Country.findByPk(req.body.countryId)
+    //     .then (foundCountry => {
+    //         console.log("Bob" + foundCountry)
+    //         Wine.findByPk(req.params.index)
+    //         .then(foundWine => {
+    //             // foundWine.addCountry(foundCountry)
+    //             res.render ('wines/show.ejs/' , {
+    //                 wine: wine
+    //             })
+    //         })
+    //     })
+    // })
     .then (wine => {
         res.redirect ('/wines')
     })
