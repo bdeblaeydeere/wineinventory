@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Inventory</title>
+</head>
+<body>
+    <h1>Add a New Wine</h1>
+    <!-- <img src= pokemon.img % >  -->
+    <br />
+
+    <h2>Wine info</h2>
+    <form action="/wines" method="POST">
+    <ul>Wine Name: <input type="text" name="name">  </ul>
+    <ul>Producer: <input type="text" name="producerId">  </ul>
+    <ul>Vintage:  <input type="text" name="year"> </ul>
+    <ul>Price paid:  <input type="text" name="price"> </ul>
+    <ul>Quantity in stock:  <input type="text" name="quantity"> </ul>
+    <ul>Tasting notes:  <input type="text" name="tastingId"> </ul>
+    <ul>Your rating:  <input type="text" name="rating"> </ul>
+    <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
+    <ul>Color: <select name="color">
+            <option value="Red">Red</option>
+            <option value="White">White</option>
+            <option value="Other">Other</option>
+        </select>
+    </ul>
+
+    <ul>From:  <input type="text" name="countryId"> </ul>
+    <ul>Purchased at:  <input type="text" name="sellerId"> </ul>
+    <ul>Additional comments:  <input type="text" name="generalNotes"> </ul><br />
+
+    <br />
+    <input type="submit" value="Add Wine"/>
+    </form>
+</body>
+</html>

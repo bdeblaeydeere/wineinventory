@@ -19,6 +19,7 @@ const show = (req, res) => {
         //     attributes: ['name']
         // },
       
+
         // ],
     })
     .then (wine => {
@@ -27,10 +28,33 @@ const show = (req, res) => {
         })
 }
 
+//Add new wine (renderNew)
+const renderNew = (req, res) => {
+    res.render ('wines/new.ejs');
+}
 
+//POST create a New Wine in the Wines DB table
+const postWine = (req, res) => {
+    Wine.create (req.body)
+    .then (wine => {
+        res.redirect('/wines') 
+    })
+}
 
+//Delete - remove an existing Wine from the Wines DB table
+const deleteWine = (req, res) => {
+    Wine.destroy ({
+        where: {id:req.params.index}
+    })
+    .then (() => {
+        res.redirect('/wines')
+    })
+}
 
 module.exports = {
     index,
     show,
+    renderNew,
+    postWine,
+    deleteWine,
 };
