@@ -7,5 +7,6 @@ router.get('/new', ctrl.wines.renderNew);
 router.get('/:index', ctrl.wines.show);
 router.post('/', ctrl.wines.postWine);
 router.delete('/:index', ctrl.wines.deleteWine);
+router.get('/:index/edit', ctrl.wines.renderEdit);
 
 module.exports = router;

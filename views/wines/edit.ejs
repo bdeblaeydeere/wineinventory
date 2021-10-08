@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Inventory</title>
+</head>
+<body>
+    <h1>Wine EDIT Page</h1>
+   Your Wine <%= wine.name %> <br>
+    <!-- <img src= pokemon.img % >  -->
+    <br />
+    <h2>Wine info</h2>
+    <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
+        <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required >  </ul>
+        <ul>Producer: <input type="text" name="producerId"  value="<%= wine.producerId  %>"></ul>
+        <ul>Vintage:  <input type="text" name="year" value="<%= wine.year %>" ></ul>
+        <ul>Price paid:  <input type="text" name="price" value="<%= wine.price %>" ></ul>
+        <ul>Quantity in stock:  <input type="text" name="quantity" value="<%= wine.quantity %>" ></ul>
+        <ul>Tasting notes:  <input type="text" name="tastingId" value="<%= wine.tastingId %>"></ul>
+        <ul>Your rating:  <input type="text" name="rating" value="<%= wine.rating %>" ></ul>
+        <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
+        <ul>Color: <select name="color" value="<%= wine.color %>">
+                <option value="Red">Red</option>
+                <option value="White">White</option>
+                <option value="Other">Other</option>
+            </select>
+        </ul>
+    
+        <ul>From:  <input type="text" name="countryId" value="<%= wine.countryId %>" ></ul>
+        <ul>Purchased at:  <input type="text" name="sellerId" value="<%= wine.sellerId %>" ></ul>
+        <ul>Additional comments:  <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul><br />
+    
+        <br />
+        <input type="submit" value="Save Changes"/>
+        </form>
+    
+    <br />
+
+     <!--  ADD DELETE FORM HERE-->
+    
+        <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE"/>
+    
+        </form>
+</body>
+</html>

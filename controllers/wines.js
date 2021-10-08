@@ -41,6 +41,16 @@ const postWine = (req, res) => {
     })
 }
 
+//Render Edit page - render the page to allow editing of an existing wine in the Wines DB table
+const renderEdit = (req, res) => {
+    Wine.findByPk (req.params.index)
+    .then (wine => {
+        res.render ('wines/edit.ejs', {
+            wine: wine
+        })
+    })
+}
+
 //Delete - remove an existing Wine from the Wines DB table
 const deleteWine = (req, res) => {
     Wine.destroy ({
@@ -57,4 +67,5 @@ module.exports = {
     renderNew,
     postWine,
     deleteWine,
+    renderEdit,
 };
