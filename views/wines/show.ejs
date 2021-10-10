@@ -18,11 +18,10 @@
     <ul>Vintage:  <%= wine.year %> </ul>
     <ul>Price paid:  <%= wine.price %> </ul>
     <ul>Quantity in stock:  <%= wine.quantity %> </ul>
-    <ul>Tasting notes:  <%= wine.tastingId %> </ul>
-    <ul>Your rating:  
+    <ul>Your rating:  <%= wine.rating %> </ul>
+    <ul>Tasting notes:  
           <% wine.Notes.forEach  ((note, index) => { %>
             <%= wine.Notes[index].name %>
-
           <% }) %>
           </ul>
     <ul>Color:  <%= wine.color %> </ul>
@@ -32,17 +31,14 @@
     <ul>Last Updated:  <%= wine.updatedAt %> </ul>
 
 
-    <!-- pokemon.Players.forEach((player, index) => {
-        <ul> <li> pokemon.Players[index].name  </li></ul>
-    })  -->
-    <h2> 
+  
         <form action="/wines/<%= wine.id %>/edit">
         <input type="submit" value="Edit Wine"/>
         <!-- <form action="https://google.com">
             <input type="submit" value="Go to Google" /> -->
         </form>
         <!-- <a href ="/wines/<%= wine.id %>/edit">Edit this Wine</a> -->
-    </h2>
+  
     <br />
 
      <!--  ADD DELETE FORM HERE-->

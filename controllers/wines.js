@@ -82,17 +82,45 @@ const renderEdit = (req, res) => {
             model: Producer,
         },
         {
+            model: Note,
+        },
+        {
             model: Seller,
         }
         ],
     })
-    
     .then (wine => {
-        res.render ('wines/edit.ejs', {
-            wine: wine
+        Country.findAll()
+        .then (allCountries => {
+            Producer.findAll()
+            .then (allProducers => {
+                Note.findAll()
+                .then(allNotes => {
+                    Seller.findAll()
+                    .then(allSellers => {
+                        res.render ('wines/edit.ejs', {
+                            wine: wine,
+                            country: allCountries,
+                            producer: allProducers,
+                            note: allNotes,
+                            seller: allSellers
+
+                    })
+                })
+            })
+        })
+
+
+        
         })
     })
 }
+//     .then (wine => {
+//         res.render ('wines/edit.ejs', {
+//             wine: wine
+//         })
+//     })
+// }
 
 //PUT function -- execute PUT method to update an existing wine changed from the renderEdit page in the Wines DB table
 const editWine = (req, res) => {
