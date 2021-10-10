@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Wine.belongsTo(models.Country, {foreignKey: "countryId"})
+      Wine.belongsTo(models.Producer, {foreignKey: "producerId"})
+      Wine.belongsTo(models.Seller, {foreignKey: "sellerId"})
+
     }
   };
   Wine.init({

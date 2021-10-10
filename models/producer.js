@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Producer.hasMany(models.Wine, {foreignKey: "producerId"})
+
     }
   };
   Producer.init({
-    name: DataTypes.STRING
+    producerName: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Producer',

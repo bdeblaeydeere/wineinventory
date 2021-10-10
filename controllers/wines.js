@@ -1,5 +1,7 @@
 const Wine = require('../models').Wine;
 const Country = require('../models').Country;
+const Producer = require('../models').Producer;
+const Seller = require('../models').Seller;
 
 //Index Route
 const index = (req, res) => {
@@ -15,11 +17,21 @@ const index = (req, res) => {
 //Show route
 const show = (req, res) => {
     Wine.findByPk(req.params.index, {
-        include: [Country]
-    
+        include: [{
+            model: Country
+        },
+        {
+            model: Producer,
+        },
+        {
+            model: Seller,
+        }
+
+    ],
         //     model: Players,
         //     attributes: ['name']
     })
+
     .then (wine => {
         res.render('wines/show.ejs', {
             wine: wine})
