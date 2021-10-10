@@ -19,7 +19,12 @@
     <ul>Price paid:  <%= wine.price %> </ul>
     <ul>Quantity in stock:  <%= wine.quantity %> </ul>
     <ul>Tasting notes:  <%= wine.tastingId %> </ul>
-    <ul>Your rating:  <%= wine.rating %> </ul>
+    <ul>Your rating:  
+          <% wine.Notes.forEach  ((note, index) => { %>
+            <%= wine.Notes[index].name %>
+
+          <% }) %>
+          </ul>
     <ul>Color:  <%= wine.color %> </ul>
     <ul>From:  <%= wine.Country.countryName %> </ul>
     <ul>Purchased at:  <%= wine.Seller.sellerName %> </ul>

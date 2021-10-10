@@ -2,17 +2,37 @@ const Wine = require('../models').Wine;
 const Country = require('../models').Country;
 const Producer = require('../models').Producer;
 const Seller = require('../models').Seller;
+const Note = require('../models').Note;
 
 //Index Route
 const index = (req, res) => {
-    Wine.findAll()
+    Wine.findAll({
+        include: [{
+            model: Country
+        },
+        {
+            model: Producer,
+        },
+        {
+            model: Seller,
+        }
+        ],
+    })
         .then(wines => {
             res.render('wines/index.ejs', {
                 wines: wines,
+            })
         })
-        // console.log(wines)
-    })
 }
+
+        // const index = (req, res) => {
+        //     Wine.findAll()
+        //         .then(wines => {
+        //             res.render('wines/index.ejs', {
+        //                 wines: wines,
+        //         })
+        //     })
+        // }
 
 //Show route
 const show = (req, res) => {
@@ -24,12 +44,13 @@ const show = (req, res) => {
             model: Producer,
         },
         {
+            model: Note,
+        },
+        {
             model: Seller,
         }
+        ],
 
-    ],
-        //     model: Players,
-        //     attributes: ['name']
     })
 
     .then (wine => {
@@ -54,7 +75,16 @@ const postWine = (req, res) => {
 //Render Edit page - render the page to allow editing of an existing wine in the Wines DB table
 const renderEdit = (req, res) => {
     Wine.findByPk (req.params.index, {
-        include: [Country]
+        include: [{
+            model: Country
+        },
+        {
+            model: Producer,
+        },
+        {
+            model: Seller,
+        }
+        ],
     })
     
     .then (wine => {

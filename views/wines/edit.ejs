@@ -18,7 +18,7 @@
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
             <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
-            <ul>Producer: <input type="text" name="producerId" value="<%= wine.producerId  %>"></ul>
+            <ul>Producer: <input type="text" name="producerId" value="<%= wine.Producer.producerName  %>"></ul>
             <ul>Vintage: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Price paid: <input type="text" name="price" value="<%= wine.price %>"></ul>
             <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
@@ -33,7 +33,7 @@
             </ul>
 
             <ul>From: <input type="text" name="countryId" value="<%= wine.Country.countryName %>"></ul>
-            <ul>Purchased at: <input type="text" name="sellerId" value="<%= wine.sellerId %>"></ul>
+            <ul>Purchased at: <input type="text" name="sellerId" value="<%= wine.Seller.sellerName %>"></ul>
             <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul><br />
 
             <br />

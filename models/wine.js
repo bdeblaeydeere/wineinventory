@@ -14,7 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       Wine.belongsTo(models.Country, {foreignKey: "countryId"})
       Wine.belongsTo(models.Producer, {foreignKey: "producerId"})
       Wine.belongsTo(models.Seller, {foreignKey: "sellerId"})
-
+      Wine.belongsToMany(models.Note, {
+        through: "NoteWine",
+        foreignKey: "wineId",
+        otherKey: "noteId",
+      });
     }
   };
   Wine.init({
