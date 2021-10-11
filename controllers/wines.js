@@ -18,6 +18,10 @@ const index = (req, res) => {
             model: Seller,
         }
         ],
+        //Add order to sort 
+        order: [
+            ['year', 'DESC']
+        ]
     })
         .then(wines => {
             res.render('wines/index.ejs', {
@@ -152,14 +156,27 @@ const editWine = (req, res) => {
         //             ],
         //         })
         .then((updatedWine) => {
-            wineNoteIds.forEach((n) => {
-              NoteWine.destroy({ where: { noteId: n } });
-            });
-            req.body.notes.forEach((n) => {
-              NoteWine.create({ noteId: n, wineId: req.params.index });
-            });
-          });
-          res.redirect('/wines');
+           //this checks for multiple tasting notes
+            if (Array.isArray(req.body.notes)) {
+                wineNoteIds.forEach((n) => {
+                    NoteWine.destroy({ where: { wineId: req.params.index } });
+                });
+                req.body.notes.forEach((n) => {
+                    NoteWine.create({ noteId: n, wineId: req.params.index });
+                });
+            }
+            else if (req.body.notes >= 1) {
+                //this checks for only one tasting note 
+                console.log("Hi Bob", req.body.notes)
+                NoteWine.destroy({ where: { wineId: req.params.index } });
+                NoteWine.create({noteId:req.body.notes, wineId: req.params.index})
+            }
+            else {
+                NoteWine.destroy({ where: { wineId: req.params.index } });
+
+            }
+        });
+    res.redirect('/wines');
         
             // .then(foundWine => {
             //     console.log("Bob:" + foundWine.Notes[0])
