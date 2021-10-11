@@ -27,7 +27,7 @@
                <% }}) %>
            </Select>
            </ul>
-            <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
+            <ul>Wine Type: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
             
             <ul>Vintage: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Country: <select name="countryId" id="<%= wine.countryId %>" selected>
@@ -41,21 +41,8 @@
             </ul>
 
 
-            <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
             <ul>Price per bottle: <input type="text" name="price" value="<%= wine.price %>"></ul>
-            <ul>Tasting notes: <br />
-                <% note.forEach(n=> { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>"
-                        <%=wineNoteIds.includes(n.id) ? 'checked' : '' %> /> <label>
-                        <%=n.name%>
-                    </label><br />
-                    <% }) %>
-            
-            
-            </ul>
-
-
-            <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1"> out of 5.0</ul>
-            <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
+            <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
             <ul>Color: <select name="color" value="<%= wine.color %>" selected>
                     <option value="Red">Red</option>
                     <option value="White">White</option>
@@ -74,6 +61,19 @@
                             <% }}) %>
                 </Select>
             </ul>
+            <ul>Tasting notes: <br />
+                <% note.forEach(n=> { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>"
+                        <%=wineNoteIds.includes(n.id) ? 'checked' : '' %> /> <label>
+                        <%=n.name%>
+                    </label><br />
+                    <% }) %>
+            
+            
+            </ul>
+
+
+            <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1"> out of 5.0</ul>
+            <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
 
             
             <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul>

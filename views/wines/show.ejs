@@ -15,19 +15,19 @@
     <br />
     <h2>Wine Details</h2>
     <ul>Producer: <%= wine.Producer.producerName %> </ul>
-    <ul>Type: <%= wine.name%> </ul>
+    <ul>Wine Type: <%= wine.name%> </ul>
     <ul>Vintage:  <%= wine.year %> </ul>
     <ul>Country:  <%= wine.Country.countryName %> </ul>
     <ul>Price per bottle:  <%= wine.price %> </ul>
     <ul>Quantity in stock:  <%= wine.quantity %> </ul>
-    <ul>Your rating:  <%= wine.rating %>  out of 5.0 </ul>
-    <ul>Tasting notes:  
-          <% wine.Notes.forEach  ((note, index) => { %>
-            <%= wine.Notes[index].name %> , 
-          <% }) %>
-          </ul>
     <ul>Color:  <%= wine.color %> </ul>
     <ul>Purchased at:  <%= wine.Seller.sellerName %> </ul>
+    <ul>Tasting notes:  
+        <% wine.Notes.forEach  ((note, index) => { %>
+            <%= wine.Notes[index].name %> , 
+            <% }) %>
+        </ul>
+    <ul>Your rating:  <%= wine.rating %>  out of 5.0 </ul>
     <ul>Additional comments:  <%= wine.generalNotes %> </ul><br />
     <ul>Last Updated:  <%= wine.updatedAt %> </ul>
 
