@@ -17,6 +17,7 @@
         <br />
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
+           <input type="hidden" value="<%=wineNoteIds%>" name="wineNoteIds">
             <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
             <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
                 <% producer.forEach  ((eachProducer, index) => { %>
@@ -42,8 +43,16 @@
             <ul>Vintage Year: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
             <ul>Price paid: <input type="text" name="price" value="<%= wine.price %>"></ul>
-            <ul>Tasting notes: <input type="text" name="tastingId" value="<%= wine.tastingId %>"></ul>
-            <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"></ul>
+            <ul>Tasting notes: <br />
+                <% note.forEach(n => { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>" <%= wineNoteIds.includes(n.id) ? 'checked' : '' %> /> <label><%=n.name%></label><br/>
+  <% }) %>
+                
+              
+                </Select>
+            </ul>
+
+
+            <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"> /5</ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
             <ul>Color: <select name="color" value="<%= wine.color %>" selected>
                     <option value="Red">Red</option>
@@ -65,7 +74,7 @@
             </ul>
 
             
-            <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul><br />
+            <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul>
 
             <br />
             <input type="submit" value="Save Changes" />

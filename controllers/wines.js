@@ -3,6 +3,7 @@ const Country = require('../models').Country;
 const Producer = require('../models').Producer;
 const Seller = require('../models').Seller;
 const Note = require('../models').Note;
+const NoteWine = require('../models').NoteWine;
 
 //Index Route
 const index = (req, res) => {
@@ -98,20 +99,18 @@ const renderEdit = (req, res) => {
                 .then(allNotes => {
                     Seller.findAll()
                     .then(allSellers => {
+                        let wineNoteIds = wine.Notes.map((n) => n.id);
                         res.render ('wines/edit.ejs', {
                             wine: wine,
                             country: allCountries,
                             producer: allProducers,
                             note: allNotes,
-                            seller: allSellers
-
+                            seller: allSellers,
+                            wineNoteIds
                     })
                 })
             })
-        })
-
-
-        
+        })        
         })
     })
 }
@@ -124,26 +123,56 @@ const renderEdit = (req, res) => {
 
 //PUT function -- execute PUT method to update an existing wine changed from the renderEdit page in the Wines DB table
 const editWine = (req, res) => {
+    let wineNoteIds = req.body.wineNoteIds.split(',');
+    console.log(req.body)
     Wine.update (req.body, {
-        where: {id: req.params.index},
+        where: {id: req.params.index, },
         returning: true,
     })
+   
     // .then(wine => {
-    //     Country.findByPk(req.body.countryId)
-    //     .then (foundCountry => {
-    //         console.log("Bob" + foundCountry)
-    //         Wine.findByPk(req.params.index)
-    //         .then(foundWine => {
-    //             // foundWine.addCountry(foundCountry)
-    //             res.render ('wines/show.ejs/' , {
-    //                 wine: wine
-    //             })
-    //         })
-    //     })
+//    console.log("Bob: ",wine)
+        // Note.findByPk(req.body.noteId)
+        // .then (foundNote => {
+        //     console.log("Bob" + foundNote)
+        //     Wine.findByPk(req.params.index,
+        //         {
+        //             include: [{
+        //                 model: Country
+        //             },
+        //             {
+        //                 model: Producer,
+        //             },
+        //             {
+        //                 model: Note,
+        //             },
+        //             {
+        //                 model: Seller,
+        //             }
+        //             ],
+        //         })
+        .then((updatedWine) => {
+            wineNoteIds.forEach((n) => {
+              NoteWine.destroy({ where: { noteId: n } });
+            });
+            req.body.notes.forEach((n) => {
+              NoteWine.create({ noteId: n, wineId: req.params.index });
+            });
+          });
+          res.redirect('/wines');
+        
+            // .then(foundWine => {
+            //     console.log("Bob:" + foundWine.Notes[0])
+            //     foundWine.addNote(foundNote)
+            //     res.render ('wines/show.ejs/' , {
+            //         wine: foundWine,
+            //     })
+            // })
+        // })
     // })
-    .then (wine => {
-        res.redirect ('/wines')
-    })
+    // .then (wine => {
+    //     res.redirect ('/wines')
+    // })
 }
 
 //Delete - remove an existing Wine from the Wines DB table
