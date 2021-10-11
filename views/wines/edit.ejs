@@ -18,14 +18,14 @@
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
             <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
-            <ul>Producer: <Select name="producerId" value="<%=wine.Producer.producerId%>">
+            <ul>Producer: <Select name="producerId" value="<%=wine.producerId%>" selected>
                 <% producer.forEach  ((eachProducer, index) => { %>
-                <option value="<%=index%>"><%=index%> - <%=producer[index].producerName  %> </option>
+                <option value="<%=producer[index].producerId%>"><%=index%> - <%=producer[index].producerName  %> </option>
                 <% }) %>
             </Select>
             </ul>
             
-            <ul>Country: <select name="countryId" value="<%= wine.Country.countryName %>">
+            <ul>Country: <select name="countryId" value="<%= wine.Country.countryName %>" selected>
                 <% country.forEach  ((eachCountry, index) => { %>
                     <option value="<%=index%>"><%=index%> - <%=country[index].countryName  %> </option>
                     <% }) %>
@@ -39,14 +39,14 @@
             <ul>Tasting notes: <input type="text" name="tastingId" value="<%= wine.tastingId %>"></ul>
             <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"></ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
-            <ul>Color: <select name="color" value="<%= wine.color %>">
+            <ul>Color: <select name="color" value="<%= wine.color %>" selected>
                     <option value="1">Red</option>
                     <option value="2">White</option>
                     <option value="3">Other</option>
                 </select>
             </ul>
 
-            <ul>Purchased at: <select name="sellerId" value="<%= wine.Seller.sellerId %>">
+            <ul>Purchased at: <select name="sellerId" value="<%= wine.Seller.sellerId %>" selected>
                 <% seller.forEach  ((eachSeller, index) => { %>
                     <option value="<%=index%>"><%=index%> - <%=seller[index].sellerName  %> </option>
                     <% }) %>

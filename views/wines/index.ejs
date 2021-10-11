@@ -11,25 +11,25 @@
 </head>
 <body>
     <h1>Wine Inventory Index Page</h1>
-    <ol>
+    <!-- <ol>
         <% wines.forEach ((wine, index) => { %>
         <li>
              <a href="/wines/<%= wine.id %>"><%= wine.name %></a>
-            <!--  ADD DELETE FORM HERE-->
+             <!-- ADD DELETE FORM HERE -->
             
             <!-- <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE"/>
             </form>  -->
-        </li>
+        <!-- </li>
         <% }) %>
-    </ol>
+    </ol> --> 
 <table>
     <tr>
-        <td>Producer</td><td>Type</td><td>Year</td>
+        <td>Producer</td><td>Type</td><td>Year</td><td>ID</td>
     </tr>
     <% wines.forEach ((wine, index) => { %>
         <tr>
-            <td><%= wine.Producer.producerName %></td> <td> <%= wine.name %> </td> <td> <%= wine.year %></td>
+            <td><%= wine.Producer.producerName %></td> <td> <%= wine.name %> </td> <td> <%= wine.year %></td><td><a href="/wines/<%= wine.id %>"><%= wine.id %></a>   </td>
         </tr>
         <% }) %>
 </table>
