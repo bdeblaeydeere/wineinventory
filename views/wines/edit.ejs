@@ -28,10 +28,13 @@
             </Select>
             </ul>
             
-            <ul>Country: <select name="countryId" id="<%= wine.Country.countryName %>" selected>
+            <ul>Country: <select name="countryId" id="<%= wine.countryId %>" selected>
                 <% country.forEach  ((eachCountry, index) => { %>
-                    <option value="<%=index%>"><%=index%> - <%=country[index].countryName  %> </option>
-                    <% }) %>
+                    <%  if (wine.countryId === country[index].id) { %>
+                        <option value="<%=country[index].id%>" selected><%=index%> - <%=country[index].countryName  %> </option>
+                <%  } else { %>
+                    <option value="<%=country[index].id%>" ><%=index%> - <%=country[index].countryName  %> </option>
+                <% }}) %>
                 </Select>
             </ul>
 
@@ -43,16 +46,21 @@
             <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"></ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
             <ul>Color: <select name="color" value="<%= wine.color %>" selected>
-                    <option value="1">Red</option>
-                    <option value="2">White</option>
-                    <option value="3">Other</option>
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                    <option value="Rose">Rose'</option>
+                    <option value="Sparkling/Champagne">Sparkling/Champagne</option>
+                    <option value="Other">Other</option>
                 </select>
             </ul>
 
-            <ul>Purchased at: <select name="sellerId" value="<%= wine.Seller.sellerId %>" selected>
+            <ul>Purchased at: <select name="sellerId" id="<%= wine.sellerId %>" selected>
                 <% seller.forEach  ((eachSeller, index) => { %>
-                    <option value="<%=index%>"><%=index%> - <%=seller[index].sellerName  %> </option>
-                    <% }) %>
+                    <%  if (wine.sellerId === seller[index].id) { %>
+                        <option value="<%=seller[index].id%>" selected><%=index%> - <%=seller[index].sellerName  %> </option>
+                        <%  } else { %>
+                            <option value="<%=seller[index].id%>" ><%=index%> - <%=seller[index].sellerName  %> </option>
+                            <% }}) %>
                 </Select>
             </ul>
 
