@@ -54,7 +54,7 @@
             </ul>
 
 
-            <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"> /5</ul>
+            <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1"> out of 5.0</ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
             <ul>Color: <select name="color" value="<%= wine.color %>" selected>
                     <option value="Red">Red</option>
