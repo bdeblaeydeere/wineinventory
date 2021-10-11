@@ -42,7 +42,7 @@
 
             <ul>Vintage Year: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
-            <ul>Price paid: <input type="text" name="price" value="<%= wine.price %>"></ul>
+            <ul>Price per bottle: <input type="text" name="price" value="<%= wine.price %>"></ul>
             <ul>Tasting notes: <br />
                 <% note.forEach(n=> { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>"
                         <%=wineNoteIds.includes(n.id) ? 'checked' : '' %> /> <label>
