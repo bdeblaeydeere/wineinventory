@@ -18,14 +18,17 @@
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
             <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
-            <ul>Producer: <Select name="producerId" value="<%=wine.producerId%>" selected>
+            <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
                 <% producer.forEach  ((eachProducer, index) => { %>
-                <option value="<%=producer[index].producerId%>"><%=index%> - <%=producer[index].producerName  %> </option>
-                <% }) %>
+              <%  if (wine.producerId === producer[index].id) { %>
+                    <option value="<%=producer[index].id%>" selected><%=index%> - <%=producer[index].producerName  %> </option>
+              <%  } else { %>
+                    <option value="<%=producer[index].id%>"><%=index%> - <%=producer[index].producerName  %> </option>
+                <% }}) %>
             </Select>
             </ul>
             
-            <ul>Country: <select name="countryId" value="<%= wine.Country.countryName %>" selected>
+            <ul>Country: <select name="countryId" id="<%= wine.Country.countryName %>" selected>
                 <% country.forEach  ((eachCountry, index) => { %>
                     <option value="<%=index%>"><%=index%> - <%=country[index].countryName  %> </option>
                     <% }) %>
