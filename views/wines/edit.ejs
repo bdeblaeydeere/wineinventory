@@ -18,17 +18,18 @@
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
            <input type="hidden" value="<%=wineNoteIds%>" name="wineNoteIds">
+           <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
+               <% producer.forEach  ((eachProducer, index) => { %>
+             <%  if (wine.producerId === producer[index].id) { %>
+                   <option value="<%=producer[index].id%>" selected><%=producer[index].producerName  %> </option>
+             <%  } else { %>
+                   <option value="<%=producer[index].id%>"><%=producer[index].producerName  %> </option>
+               <% }}) %>
+           </Select>
+           </ul>
             <ul>Wine Name: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
-            <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
-                <% producer.forEach  ((eachProducer, index) => { %>
-              <%  if (wine.producerId === producer[index].id) { %>
-                    <option value="<%=producer[index].id%>" selected><%=producer[index].producerName  %> </option>
-              <%  } else { %>
-                    <option value="<%=producer[index].id%>"><%=producer[index].producerName  %> </option>
-                <% }}) %>
-            </Select>
-            </ul>
             
+            <ul>Vintage: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Country: <select name="countryId" id="<%= wine.countryId %>" selected>
                 <% country.forEach  ((eachCountry, index) => { %>
                     <%  if (wine.countryId === country[index].id) { %>
@@ -40,7 +41,6 @@
             </ul>
 
 
-            <ul>Vintage Year: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
             <ul>Price per bottle: <input type="text" name="price" value="<%= wine.price %>"></ul>
             <ul>Tasting notes: <br />
