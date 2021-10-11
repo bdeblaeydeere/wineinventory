@@ -25,9 +25,17 @@
             </Select>
             </ul>
             
-            <ul>Vintage: <input type="text" name="year" value="<%= wine.year %>"></ul>
-            <ul>Price paid: <input type="text" name="price" value="<%= wine.price %>"></ul>
+            <ul>Country: <select name="countryId" value="<%= wine.Country.countryName %>">
+                <% country.forEach  ((eachCountry, index) => { %>
+                    <option value="<%=index%>"><%=index%> - <%=country[index].countryName  %> </option>
+                    <% }) %>
+                </Select>
+            </ul>
+
+
+            <ul>Vintage Year: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Quantity in stock: <input type="text" name="quantity" value="<%= wine.quantity %>"></ul>
+            <ul>Price paid: <input type="text" name="price" value="<%= wine.price %>"></ul>
             <ul>Tasting notes: <input type="text" name="tastingId" value="<%= wine.tastingId %>"></ul>
             <ul>Your rating: <input type="text" name="rating" value="<%= wine.rating %>"></ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
@@ -38,8 +46,14 @@
                 </select>
             </ul>
 
-            <ul>From: <input type="text" name="countryId" value="<%= wine.Country.countryName %>"></ul>
-            <ul>Purchased at: <input type="text" name="sellerId" value="<%= wine.Seller.sellerName %>"></ul>
+            <ul>Purchased at: <select name="sellerId" value="<%= wine.Seller.sellerId %>">
+                <% seller.forEach  ((eachSeller, index) => { %>
+                    <option value="<%=index%>"><%=index%> - <%=seller[index].sellerName  %> </option>
+                    <% }) %>
+                </Select>
+            </ul>
+
+            
             <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul><br />
 
             <br />
