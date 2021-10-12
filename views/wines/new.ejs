@@ -51,23 +51,69 @@
     <h2>Wine info</h2>
     <form action="/wines" method="POST">
         
-    <ul>Producer: <input type="text" name="producerId">  </ul>
+    <!-- <ul>Producer: <input type="text" name="producerId">  </ul> -->
+    <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
+        <% producer.forEach ((eachProducer, index)=> { %>
+            <% if (wine.producerId===producer[index].id) { %>
+                <option value="<%=producer[index].id%>" selected>
+                    <%=producer[index].producerName %>
+                </option>
+                <% } else { %>
+                    <option value="<%=producer[index].id%>">
+                        <%=producer[index].producerName %>
+                    </option>
+                    <% }}) %>
+    </Select>
+</ul>
     <ul>Wine Type: <input type="text" name="name">  </ul>
     <ul>Vintage:  <input type="text" name="year"> </ul>
-    <ul>Price paid:  <input type="text" name="price"> </ul>
+    <ul>Country: <select name="countryId" id="<%= wine.countryId %>" selected>
+        <% country.forEach ((eachCountry, index)=> { %>
+            <% if (wine.countryId===country[index].id) { %>
+                <option value="<%=country[index].id%>" selected>
+                    <%=country[index].countryName %>
+                </option>
+                <% } else { %>
+                    <option value="<%=country[index].id%>">
+                        <%=country[index].countryName %>
+                    </option>
+                    <% }}) %>
+    </Select>
+</ul>    
+    <ul>Price per bottle:  <input type="text" name="price"> </ul>
     <ul>Quantity in stock:  <input type="text" name="quantity"> </ul>
-    <ul>Tasting notes:  <input type="text" name="tastingId"> </ul>
-    <ul>Your rating:  <input type="text" name="rating"> </ul>
-    <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
-    <ul>Color: <select name="color">
-            <option value="Red">Red</option>
-            <option value="White">White</option>
-            <option value="Other">Other</option>
-        </select>
-    </ul>
+    <ul>Color: <select name="color" value="<%= wine.color %>" selected>
+        <option value="Red">Red</option>
+        <option value="White">White</option>
+        <option value="Rose">Rose'</option>
+        <option value="Sparkling/Champagne">Sparkling/Champagne</option>
+        <option value="Other">Other</option>
+    </select>
+</ul>
+<ul>Purchased at: <select name="sellerId" id="<%= wine.sellerId %>" selected>
+    <% seller.forEach ((eachSeller, index)=> { %>
+        <% if (wine.sellerId===seller[index].id) { %>
+            <option value="<%=seller[index].id%>" selected>
+                <%=seller[index].sellerName %>
+            </option>
+            <% } else { %>
+                <option value="<%=seller[index].id%>">
+                    <%=seller[index].sellerName %>
+                </option>
+                <% }}) %>
+</Select>
+</ul>
 
-    <ul>Country: <input type="text" name="countryId"> </ul>
-    <ul>Purchased at: <input type="text" name="sellerId"> </ul>
+<ul>Tasting notes: <br />
+    <% note.forEach(n => { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>"/> 
+             <label>
+            <%=n.name%>
+        </label><br />
+        <% }) %>
+</ul>
+<ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1">
+    out of 5.0</ul>
+
     <ul>Additional comments: <br />
         <textarea name="generalNotes" rows="4" cols="50">
         </textarea>

@@ -65,10 +65,49 @@ const show = (req, res) => {
 }
 
 //Add new wine (renderNew)
+// const renderNew = (req, res) => {
+//     res.render ('wines/new.ejs');
+// }
 const renderNew = (req, res) => {
-    res.render ('wines/new.ejs');
+    Wine.findAll( {
+        include: [{
+            model: Country
+        },
+        {
+            model: Producer,
+        },
+        {
+            model: Note,
+        },
+        {
+            model: Seller,
+        }
+        ],
+    })
+        .then(wine => {
+            Country.findAll()
+            .then(allCountries => {
+                Producer.findAll()
+                    .then(allProducers => {
+                        Note.findAll()
+                            .then(allNotes => {
+                                Seller.findAll()
+                                    .then(allSellers => {
+                                        // let wineNoteIds = wine.Notes.map((n) => n.id);
+                                        res.render('wines/new.ejs', {
+                                            wine: wine,
+                                            country: allCountries,
+                                            producer: allProducers,
+                                            note: allNotes,
+                                            seller: allSellers,   
+                                            // wineNoteIds
+                                        });
+                                    })
+                            })
+                    })
+            })
+        })
 }
-
 //POST create a New Wine in the Wines DB table
 const postWine = (req, res) => {
     Wine.create (req.body)
