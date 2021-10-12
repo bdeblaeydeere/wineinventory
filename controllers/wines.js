@@ -110,6 +110,8 @@ const renderNew = (req, res) => {
 }
 //POST create a New Wine in the Wines DB table
 const postWine = (req, res) => {
+    let wineNoteIds = req.body.notes.split(',');
+    console.log(req.body)
     Wine.create (req.body)
     .then (wine => {
         res.redirect('/wines') 
