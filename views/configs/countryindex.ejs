@@ -42,32 +42,14 @@
           </div>
         </div>
       </nav>
-    <h1>Wine Inventory Country Configuration Page</h1>
-   <!-- Add a new Country to the DB
-    <form action="/configs" method="POST">
-      <ul>Country:  <input type="text" name="countryName"> </ul>
-      <input type="submit" value="Add Country"/>
-    -->
-   <!-- Delete an existing country -->
-    <!-- </form> -->
-  <!-- <ol>  <ul>Country: <select name="countryId" >
-      <% countries.forEach  ((eachCountry, index) => { %>
-          <option value="<%=countries[index].id%>" ><%=countries[index].countryName  %> </option>
-      <% }) %>
-      </Select>
-  </ul>
-</ol>
-<%= countries.countryId %>
-<form action="/configs/countries/<%= countries.countryId %>?_method=DELETE" method="POST">
-  <input type="submit" value="DELETE" />
+    <h1>Wine Inventory Configuration Page</h1>
 
-</form> -->
-
+<!-- Adding a Country  -->
     <div class="card border-primary mb-3" style="max-width: 20rem;">
         <div class="card-header">Add a Country</div>
         <div class="card-body">
           <!-- <h4 class="card-title">Primary card title</h4> -->
-          <form action="/configs" method="POST">
+          <form action="/configs/countries" method="POST">
             Country:  <input type="text" name="countryName">
             <input type="submit" value="Add"/>
             </form>
@@ -75,6 +57,20 @@
         </div>
       </div>
       
+<!-- Adding a Producer  -->
+      <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Add a Producer</div>
+        <div class="card-body">
+          <!-- <h4 class="card-title">Primary card title</h4> -->
+          <form action="/configs/producers" method="POST">
+            Producer:  <input type="text" name="producerName">
+            <input type="submit" value="Add"/>
+            </form>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+      </div>
+
+<!-- Deleting a Country  -->
       <div class="card border-primary mb-3" style="max-width: 20rem;">
         <div class="card-header">Delete a Country</div>
         <div class="card-body">
@@ -84,6 +80,26 @@
               <% countries.forEach ((eachCountry, index)=> { %>
                 <option value="<%=countries[index].id%>">
                   <%=countries[index].countryName %>
+                </option>
+                <% }) %>
+            </Select>
+            <input type="submit" value="Delete" />
+          </form>
+          <!-- <h4 class="card-title">Primary card title</h4> -->
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+      </div>
+
+      <!-- Deleting a Producer  -->
+      <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Delete a Producer</div>
+        <div class="card-body">
+          <form action="/configs/producers?_method=DELETE" method="POST">
+            Producer:
+            <select name="producerId">
+              <% producers.forEach ((eachProducer, index)=> { %>
+                <option value="<%=producers[index].id%>">
+                  <%=producers[index].producerName %>
                 </option>
                 <% }) %>
             </Select>

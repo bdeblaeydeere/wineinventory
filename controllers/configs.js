@@ -9,20 +9,53 @@ const countryIndex = (req, res) => {
     Country.findAll({
         order: [
             ['countryName', 'ASC']
-        ]
+        ],
     })
         .then(countries => {
-            res.render('configs/countryindex.ejs', {
-                countries
+            Producer.findAll({
+                order: [
+                    ['producerName', 'ASC']
+                ],
             })
+                .then(producers => {
+                    Note.findAll({
+                        order: [
+                            ['name', 'ASC']
+                        ],
+                    })
+                        .then(notes => {
+                            Seller.findAll({
+                                order: [
+                                    ['sellerName', 'ASC']
+                                ],
+                            })
+                                .then(sellers => {
+                                    res.render('configs/countryindex.ejs', {
+                                        countries,
+                                        producers,
+                                        notes,
+                                        sellers,
+                                    })
+                                })
+                        })
+                })
         })
 }
-//Add new wine (renderNew)
-// const renderNew = (req, res) => {
-//     res.render ('configs/newcountry.ejs');
+
+// const countryIndex = (req, res) => {
+//     Country.findAll({
+//         order: [
+//             ['countryName', 'ASC']
+//         ]
+//     })
+//         .then(countries => {
+//             res.render('configs/countryindex.ejs', {
+//                 countries
+//             })
+//         })
 // }
 
-//POST create a New Wine in the Wines DB table
+//POST Country -create a new NEW Country in the Countries DB table
 const postCountry = (req, res) => {
     console.log("bob: ",req.body)
     Country.create (req.body)
@@ -31,7 +64,7 @@ const postCountry = (req, res) => {
         res.redirect('/configs/') 
     })
 }
-//Delete - remove an existing Wine from the Wines DB table
+//Delete - remove an existing Country from the Countries DB table
 const deleteCountry = (req, res) => {
     console.log("bob: ",req.body)
     Country.destroy ({
@@ -43,17 +76,63 @@ const deleteCountry = (req, res) => {
 }
 
 //Producer controllers
-const producerIndex = (req, res) => {
-    Producer.findAll()
-        .then(producers => {
-            res.render('configs/configindex.ejs', {
-                producers
-            })
-        })
+// const producerIndex = (req, res) => {
+//     Producer.findAll({
+//         order: [
+//             ['producerName', 'ASC']
+//         ]
+//     })
+//         .then(producers => {
+//             res.render('configs/configindex.ejs', {
+//                 producers
+//             })
+//         })
+// }
+//POST Producer -create a new NEW Country in the Countries DB table
+const postProducer = (req, res) => {
+    console.log("bob: ",req.body)
+    Producer.create (req.body)
+    .then (producer => {
+        // res.render ('configs/countryindex.ejs');
+        res.redirect('/configs/') 
+    })
 }
+//Delete - remove an existing Producer from the Producers DB table
+const deleteProducer = (req, res) => {
+    // console.log("bob: ",req.body)
+    Producer.destroy ({
+        where: {id:req.body.producerId}
+    })
+    .then (() => {
+        res.redirect('/configs/')
+    })
+}
+
+//POST Country -create a new NEW Country in the Countries DB table
+const postProducer = (req, res) => {
+    console.log("bob: ",req.body)
+    Producer.create (req.body)
+    .then (producer => {
+        // res.render ('configs/countryindex.ejs');
+        res.redirect('/configs/') 
+    })
+}
+//Delete - remove an existing Producer from the Producers DB table
+const deleteProducer = (req, res) => {
+    // console.log("bob: ",req.body)
+    Producer.destroy ({
+        where: {id:req.body.producerId}
+    })
+    .then (() => {
+        res.redirect('/configs/')
+    })
+}
+
 module.exports = {
     countryIndex,
     postCountry,
     deleteCountry,
-    producerIndex
+    producerIndex,
+    postProducer,
+    deleteProducer,
 };
