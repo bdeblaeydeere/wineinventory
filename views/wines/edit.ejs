@@ -13,25 +13,26 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/wines">Wine Inventory</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="/wines">Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href ="/wines/new">Add a Wine</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href ="/configs/">App Configuration</a>
-              </li>
-              <!-- <li class="nav-item dropdown">
+            <a class="navbar-brand" href="/wines">Wine Inventory</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/wines">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wines/new">Add a Wine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/configs/">App Configuration</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Action</a>
@@ -41,10 +42,10 @@
                   <a class="dropdown-item" href="#">Separated link</a>
                 </div>
               </li> -->
-            </ul>
-          </div>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
     <h1>Wine EDIT Page</h1>
     Your Wine <%= wine.name %> <br>
@@ -52,26 +53,34 @@
         <br />
         <h2>Wine info</h2>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
-           <input type="hidden" value="<%=wineNoteIds%>" name="wineNoteIds">
-           <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
-               <% producer.forEach  ((eachProducer, index) => { %>
-             <%  if (wine.producerId === producer[index].id) { %>
-                   <option value="<%=producer[index].id%>" selected><%=producer[index].producerName  %> </option>
-             <%  } else { %>
-                   <option value="<%=producer[index].id%>"><%=producer[index].producerName  %> </option>
-               <% }}) %>
-           </Select>
-           </ul>
+            <input type="hidden" value="<%=wineNoteIds%>" name="wineNoteIds">
+            <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
+                    <% producer.forEach ((eachProducer, index)=> { %>
+                        <% if (wine.producerId===producer[index].id) { %>
+                            <option value="<%=producer[index].id%>" selected>
+                                <%=producer[index].producerName %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%=producer[index].id%>">
+                                    <%=producer[index].producerName %>
+                                </option>
+                                <% }}) %>
+                </Select>
+            </ul>
             <ul>Wine Type: <input type="text" name="name" value="<%= wine.name %>" required> </ul>
-            
+
             <ul>Vintage: <input type="text" name="year" value="<%= wine.year %>"></ul>
             <ul>Country: <select name="countryId" id="<%= wine.countryId %>" selected>
-                <% country.forEach  ((eachCountry, index) => { %>
-                    <%  if (wine.countryId === country[index].id) { %>
-                        <option value="<%=country[index].id%>" selected><%=country[index].countryName  %> </option>
-                <%  } else { %>
-                    <option value="<%=country[index].id%>" ><%=country[index].countryName  %> </option>
-                <% }}) %>
+                    <% country.forEach ((eachCountry, index)=> { %>
+                        <% if (wine.countryId===country[index].id) { %>
+                            <option value="<%=country[index].id%>" selected>
+                                <%=country[index].countryName %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%=country[index].id%>">
+                                    <%=country[index].countryName %>
+                                </option>
+                                <% }}) %>
                 </Select>
             </ul>
 
@@ -88,12 +97,16 @@
             </ul>
 
             <ul>Purchased at: <select name="sellerId" id="<%= wine.sellerId %>" selected>
-                <% seller.forEach  ((eachSeller, index) => { %>
-                    <%  if (wine.sellerId === seller[index].id) { %>
-                        <option value="<%=seller[index].id%>" selected><%=seller[index].sellerName  %> </option>
-                        <%  } else { %>
-                            <option value="<%=seller[index].id%>" ><%=seller[index].sellerName  %> </option>
-                            <% }}) %>
+                    <% seller.forEach ((eachSeller, index)=> { %>
+                        <% if (wine.sellerId===seller[index].id) { %>
+                            <option value="<%=seller[index].id%>" selected>
+                                <%=seller[index].sellerName %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%=seller[index].id%>">
+                                    <%=seller[index].sellerName %>
+                                </option>
+                                <% }}) %>
                 </Select>
             </ul>
             <ul>Tasting notes: <br />
@@ -102,30 +115,30 @@
                         <%=n.name%>
                     </label><br />
                     <% }) %>
-            
-            
+
+
             </ul>
 
 
-            <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1"> out of 5.0</ul>
+            <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1">
+                out of 5.0</ul>
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
 
-            
-            <ul>Additional comments: 
+
+            <ul>Additional comments: <br />
                 <textarea name="generalNotes" rows="4" cols="50"><%= wine.generalNotes %>
                             </textarea>
             </ul>
+            <ul>
+                <input type="submit" value="Save Changes" />
 
-            <br />
-            <input type="submit" value="Save Changes" />
+            </ul>
         </form>
-
-        <br />
 
         <!--  ADD DELETE FORM HERE-->
 
         <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE" />
+           <ul> <input type="submit" value="Delete Wine" /></ul>
 
         </form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
