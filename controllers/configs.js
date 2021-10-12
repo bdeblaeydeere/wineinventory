@@ -108,20 +108,20 @@ const deleteProducer = (req, res) => {
     })
 }
 
-//POST Country -create a new NEW Country in the Countries DB table
-const postProducer = (req, res) => {
-    console.log("bob: ",req.body)
-    Producer.create (req.body)
-    .then (producer => {
+//POST Seller -create a new NEW Seller in the Sellers DB table
+const postSeller = (req, res) => {
+    // console.log("bob: ",req.body)
+    Seller.create (req.body)
+    .then (seller => {
         // res.render ('configs/countryindex.ejs');
         res.redirect('/configs/') 
     })
 }
 //Delete - remove an existing Producer from the Producers DB table
-const deleteProducer = (req, res) => {
+const deleteSeller = (req, res) => {
     // console.log("bob: ",req.body)
-    Producer.destroy ({
-        where: {id:req.body.producerId}
+    Seller.destroy ({
+        where: {id:req.body.sellerId}
     })
     .then (() => {
         res.redirect('/configs/')
@@ -132,7 +132,8 @@ module.exports = {
     countryIndex,
     postCountry,
     deleteCountry,
-    producerIndex,
     postProducer,
     deleteProducer,
+    postSeller,
+    deleteSeller,
 };
