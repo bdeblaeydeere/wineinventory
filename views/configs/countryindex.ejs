@@ -27,8 +27,10 @@
               <li class="nav-item">
                 <a class="nav-link"  href ="/wines/new">Add a Wine</a>
               </li>
-              
-              <li class="nav-item dropdown">
+              <li class="nav-item">
+                <a class="nav-link"  href ="/configs/">App Configuration</a>
+              </li>
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Action</a>
@@ -37,66 +39,72 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Separated link</a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
       </nav>
     <h1>Wine Inventory Configuration Page</h1>
 
-<!-- Adding a Country  -->
-    <div class="card border-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Add a Country</div>
-        <div class="card-body">
-          <!-- <h4 class="card-title">Primary card title</h4> -->
-          <form action="/configs/countries" method="POST">
-            Country:  <input type="text" name="countryName">
-            <input type="submit" value="Add"/>
-            </form>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        </div>
+<!-- Starting class for cards -->
+<div class="card-group">
+  
+    <!-- Adding a Country  -->
+    <div class="card border-primary mb-3" style="max-width: 15rem;">
+      <div class="card-header">Add a Country</div>
+      <div class="card-body">
+        <!-- <h4 class="card-title">Primary card title</h4> -->
+        <form action="/configs/countries" method="POST">
+          Country: <input type="text" name="countryName">
+          <input type="submit" value="Add" />
+        </form>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
       </div>
-      
-<!-- Adding a Producer  -->
-      <div class="card border-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Add a Producer</div>
-        <div class="card-body">
-          <!-- <h4 class="card-title">Primary card title</h4> -->
-          <form action="/configs/producers" method="POST">
-            Producer:  <input type="text" name="producerName">
-            <input type="submit" value="Add"/>
-            </form>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        </div>
+    </div>
+
+    <!-- Adding a Producer  -->
+    <div class="card border-primary mb-3" style="max-width: 15rem;">
+      <div class="card-header">Add a Producer</div>
+      <div class="card-body">
+        <!-- <h4 class="card-title">Primary card title</h4> -->
+        <form action="/configs/producers" method="POST">
+          Producer: <input type="text" name="producerName">
+          <input type="submit" value="Add" />
+        </form>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
       </div>
-     
-<!-- Adding a Seller  -->
-<div class="card border-primary mb-3" style="max-width: 20rem;">
-  <div class="card-header">Add a Seller</div>
-  <div class="card-body">
-    <!-- <h4 class="card-title">Primary card title</h4> -->
-    <form action="/configs/sellers" method="POST">
-      Producer:  <input type="text" name="sellerName">
-      <input type="submit" value="Add"/>
-      </form>
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-  </div>
-</div>
-<!-- Adding a Tasting Note  -->
-<div class="card border-primary mb-3" style="max-width: 20rem;">
-  <div class="card-header">Add a Tasting Note</div>
-  <div class="card-body">
-    <!-- <h4 class="card-title">Primary card title</h4> -->
-    <form action="/configs/notes" method="POST">
-      Tasting Note:  <input type="text" name="name">
-      <input type="submit" value="Add"/>
-      </form>
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-  </div>
+    </div>
+
+    <!-- Adding a Seller  -->
+    <div class="card border-primary mb-3" style="max-width: 15rem;">
+      <div class="card-header">Add a Seller</div>
+      <div class="card-body">
+        <!-- <h4 class="card-title">Primary card title</h4> -->
+        <form action="/configs/sellers" method="POST">
+          Seller: <input type="text" name="sellerName">
+          <input type="submit" value="Add" />
+        </form>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      </div>
+    </div>
+    <!-- Adding a Tasting Note  -->
+    <div class="card border-primary mb-3" style="max-width: 15rem;">
+      <div class="card-header">Add a Tasting Note</div>
+      <div class="card-body">
+        <!-- <h4 class="card-title">Primary card title</h4> -->
+        <form action="/configs/notes" method="POST">
+          Tasting Note: <input type="text" name="name">
+          <input type="submit" value="Add" />
+        </form>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      </div>
+    </div>
 </div>
 
+<div class="card-group">
+
 <!-- Deleting a Country  -->
-      <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card border-primary mb-3" style="max-width: 15rem;">
         <div class="card-header">Delete a Country</div>
         <div class="card-body">
           <form action="/configs/countries?_method=DELETE" method="POST">
@@ -116,7 +124,7 @@
       </div>
 
       <!-- Deleting a Producer  -->
-      <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card border-primary mb-3" style="max-width: 15rem;">
         <div class="card-header">Delete a Producer</div>
         <div class="card-body">
           <form action="/configs/producers?_method=DELETE" method="POST">
@@ -136,7 +144,7 @@
       </div>
     
        <!-- Deleting a Seller  -->
-       <div class="card border-primary mb-3" style="max-width: 20rem;">
+       <div class="card border-primary mb-3" style="max-width: 15rem;">
         <div class="card-header">Delete a Seller</div>
         <div class="card-body">
           <form action="/configs/sellers?_method=DELETE" method="POST">
@@ -156,7 +164,7 @@
       </div>
 
       <!-- Deleting a Tasting Note  -->
-      <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card border-primary mb-3" style="max-width: 15rem;">
         <div class="card-header">Delete a Tasting Note</div>
         <div class="card-body">
           <form action="/configs/notes?_method=DELETE" method="POST">
@@ -174,7 +182,9 @@
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
         </div>
       </div>
+    </div>
     
+ 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 </body>
 </html>
