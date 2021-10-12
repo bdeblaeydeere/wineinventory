@@ -108,14 +108,14 @@
         <div class="card-header">Delete a Country</div>
         <div class="card-body">
           <form action="/configs/countries?_method=DELETE" method="POST">
-            Country:
+            Country: <br />
             <select name="countryId">
               <% countries.forEach ((eachCountry, index)=> { %>
                 <option value="<%=countries[index].id%>">
                   <%=countries[index].countryName %>
                 </option>
                 <% }) %>
-            </Select>
+            </Select><br />
             <input type="submit" value="Delete" />
           </form>
           <!-- <h4 class="card-title">Primary card title</h4> -->
@@ -175,7 +175,7 @@
                   <%=notes[index].name %>
                 </option>
                 <% }) %>
-            </Select>
+            </Select><br />
             <input type="submit" value="Delete" />
           </form>
           <!-- <h4 class="card-title">Primary card title</h4> -->
