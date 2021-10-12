@@ -167,7 +167,7 @@ const editWine = (req, res) => {
             }
             else if (req.body.notes >= 1) {
                 //this checks for only one tasting note 
-                console.log("Hi Bob", req.body.notes)
+                // console.log("Hi Bob", req.body.notes)
                 NoteWine.destroy({ where: { wineId: req.params.index } });
                 NoteWine.create({noteId:req.body.notes, wineId: req.params.index})
             }
