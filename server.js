@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(methodOverride('_method'));
 
 app.use('/wines', routes.wines)
+app.use('/configs', routes.configs)
 // //Default get page setup
 // app.get('/', (req, res) => {
 //     res.send('Test default page');

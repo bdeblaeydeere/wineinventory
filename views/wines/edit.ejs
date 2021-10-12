@@ -76,7 +76,10 @@
             <!-- <ul>Color:  <input type="text" name="color"> </ul> -->
 
             
-            <ul>Additional comments: <input type="text" name="generalNotes" value="<%= wine.generalNotes %>"></ul>
+            <ul>Additional comments: <br />
+                <textarea name="generalNotes" rows="4" cols="50"><%= wine.generalNotes %>
+                            </textarea>
+            </ul>
 
             <br />
             <input type="submit" value="Save Changes" />
