@@ -117,11 +117,30 @@ const postSeller = (req, res) => {
         res.redirect('/configs/') 
     })
 }
-//Delete - remove an existing Producer from the Producers DB table
+//Delete - remove an existing Seller from the Sellers DB table
 const deleteSeller = (req, res) => {
-    console.log("bob: ",req.body)
+    // console.log("bob: ",req.body)
     Seller.destroy ({
         where: {id:req.body.sellerId}
+    })
+    .then (() => {
+        res.redirect('/configs/')
+    })
+}
+
+//POST Notes -create a new NEW Note in the Notes DB table
+const postNote = (req, res) => {
+    // console.log("bob: ",req.body)
+    Note.create (req.body)
+    .then (note => {
+        res.redirect('/configs/') 
+    })
+}
+//Delete - remove an existing Note from the Notes DB table
+const deleteNote = (req, res) => {
+    // console.log("bob: ",req.body)
+    Note.destroy ({
+        where: {id:req.body.noteId}
     })
     .then (() => {
         res.redirect('/configs/')
@@ -136,4 +155,6 @@ module.exports = {
     deleteProducer,
     postSeller,
     deleteSeller,
+    postNote,
+    deleteNote,
 };
