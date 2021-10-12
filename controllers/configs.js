@@ -130,7 +130,7 @@ const deleteSeller = (req, res) => {
 
 //POST Notes -create a new NEW Note in the Notes DB table
 const postNote = (req, res) => {
-    // console.log("bob: ",req.body)
+    console.log("bob: ",req.body)
     Note.create (req.body)
     .then (note => {
         res.redirect('/configs/') 
@@ -138,7 +138,7 @@ const postNote = (req, res) => {
 }
 //Delete - remove an existing Note from the Notes DB table
 const deleteNote = (req, res) => {
-    // console.log("bob: ",req.body)
+    console.log("bob: ",req.body)
     Note.destroy ({
         where: {id:req.body.noteId}
     })
