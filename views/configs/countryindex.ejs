@@ -69,6 +69,31 @@
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
         </div>
       </div>
+     
+<!-- Adding a Seller  -->
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Add a Seller</div>
+  <div class="card-body">
+    <!-- <h4 class="card-title">Primary card title</h4> -->
+    <form action="/configs/sellers" method="POST">
+      Producer:  <input type="text" name="sellerName">
+      <input type="submit" value="Add"/>
+      </form>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  </div>
+</div>
+<!-- Adding a Tasting Note  -->
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Add a Tasting Note</div>
+  <div class="card-body">
+    <!-- <h4 class="card-title">Primary card title</h4> -->
+    <form action="/configs/notes" method="POST">
+      Producer:  <input type="text" name="sellerName">
+      <input type="submit" value="Add"/>
+      </form>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  </div>
+</div>
 
 <!-- Deleting a Country  -->
       <div class="card border-primary mb-3" style="max-width: 20rem;">
@@ -100,6 +125,26 @@
               <% producers.forEach ((eachProducer, index)=> { %>
                 <option value="<%=producers[index].id%>">
                   <%=producers[index].producerName %>
+                </option>
+                <% }) %>
+            </Select>
+            <input type="submit" value="Delete" />
+          </form>
+          <!-- <h4 class="card-title">Primary card title</h4> -->
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        </div>
+      </div>
+    
+       <!-- Deleting a Seller  -->
+       <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Delete a Seller</div>
+        <div class="card-body">
+          <form action="/configs/sellers?_method=DELETE" method="POST">
+            Seller:
+            <select name="sellerId">
+              <% sellers.forEach ((eachSeller, index)=> { %>
+                <option value="<%=sellers[index].id%>">
+                  <%=sellers[index].sellerName %>
                 </option>
                 <% }) %>
             </Select>

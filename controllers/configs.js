@@ -119,7 +119,7 @@ const postSeller = (req, res) => {
 }
 //Delete - remove an existing Producer from the Producers DB table
 const deleteSeller = (req, res) => {
-    // console.log("bob: ",req.body)
+    console.log("bob: ",req.body)
     Seller.destroy ({
         where: {id:req.body.sellerId}
     })
