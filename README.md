@@ -54,7 +54,7 @@ Things I didn't get to that I would like to enhance on future deployments:
 	8. As a user I want to be able to add or delete sellers so that I can give myself  more options
 	9. As a user I want to be able to add or delete producers so that I can give myself more options
 	10. As a user I want to be able to add or delete tasting notes so that I can give myself  more options
- 11. As a user I want to be able to add or delete countries so that I can give myself  more options
+	11. As a user I want to be able to add or delete countries so that I can give myself  more options
 
 
 ## Time Frames
@@ -72,10 +72,12 @@ None outside of what was required for MVP
 Two areas of the code I was pleased with myself on working through was the Tasting Notes controller for the Edit area and the consolidated App Configuration page.
 
 Wines.js Controller - Edit Route
+
 What made this challenging was that if two or more notes were selected the req.body would have the notes as an Array.  For one note it would be a single value, and for no selected notes nothing would be returned.  So the logic on how to handle and update the joins table for the many-to-many relationship was tricky.
 ![image](https://user-images.githubusercontent.com/80486373/137146791-e4c3671b-fbf3-4551-9fcb-f9378ce2caec.png)
 
 Single page App Configuration Page
+
 Rather than creating separate pages for all of these functions to extend the selection options to the user when adding a wine, I wanted a simple experience.  My routes table for config.js was unique from what I had worked with in that it had multiple POST and DELETE routes and only one GET route.
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/80486373/137147698-284b6ba7-23b2-43ef-aae9-038b82296212.png">
 ![image](https://user-images.githubusercontent.com/80486373/137148235-448f6e0e-cd6b-422f-9c1f-486a6eb7d78d.png)
