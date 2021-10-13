@@ -66,7 +66,7 @@ const deleteCountry = (req, res) => {
 
 //POST Producer -create a new NEW Country in the Countries DB table
 const postProducer = (req, res) => {
-    console.log("bob: ",req.body)
+    // console.log("bob: ",req.body)
     Producer.create (req.body)
     .then (producer => {
         // res.render ('configs/countryindex.ejs');
