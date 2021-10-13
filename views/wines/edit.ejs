@@ -47,11 +47,10 @@
         </div>
     </nav>
 
-    <h1>Wine EDIT Page</h1>
-    Your Wine <%= wine.name %> <br>
-        <!-- <img src= pokemon.img % >  -->
+    <h1>Edit Your Wine: <%= wine.Producer.producerName %> <%= wine.name %> - <%= wine.year %></h1>
         <br />
-        <h2>Wine info</h2>
+        <h2>Details:</h2>
+        <ul>
         <form action="/wines/<%= wine.id %>?_method=PUT" method="POST">
             <input type="hidden" value="<%=wineNoteIds%>" name="wineNoteIds">
             <ul>Producer: <Select name="producerId" id="<%=wine.producerId%>" selected>
@@ -132,6 +131,7 @@
                 <input type="submit" value="Save Changes" />
 
             </ul>
+       <br />
         </form>
 
         <!--  ADD DELETE FORM HERE-->
@@ -143,7 +143,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
             crossorigin="anonymous"></script>
-
+        </ul>
 </body>
 
 </html>

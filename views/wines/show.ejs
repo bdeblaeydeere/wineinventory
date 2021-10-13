@@ -43,11 +43,12 @@
           </div>
         </div>
       </nav>
-   <h1>Wine Show Page</h1>
-   Your Wine <%= wine.name %> <br>
+   <h1>Your Wine: <%= wine.Producer.producerName %> <%= wine.name %> - <%= wine.year %></h1>
+    
     <!-- <img src= pokemon.img % >  -->
     <br />
-    <h2>Wine Details</h2>
+    <h2>Details:</h2>
+    <ul>
     <ul>Producer: <%= wine.Producer.producerName %> </ul>
     <ul>Wine Type: <%= wine.name%> </ul>
     <ul>Vintage:  <%= wine.year %> </ul>
@@ -75,7 +76,7 @@
         <!-- <a href ="/wines/<%= wine.id %>/edit">Edit this Wine</a> -->
   
     <br />
-
+  </ul>
      <!--  ADD DELETE FORM HERE-->
     
         <!-- <form action="/wines/<%= wine.id %>?_method=DELETE" method="POST">
