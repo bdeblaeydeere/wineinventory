@@ -82,7 +82,6 @@ Rather than creating separate pages for all of these functions to extend the sel
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/80486373/137147698-284b6ba7-23b2-43ef-aae9-038b82296212.png">
 ![image](https://user-images.githubusercontent.com/80486373/137148235-448f6e0e-cd6b-422f-9c1f-486a6eb7d78d.png)
 
-<img width="730" alt="image" src="https://user-images.githubusercontent.com/80486373/137147698-284b6ba7-23b2-43ef-aae9-038b82296212.png">
 
 ## Issues and Resolutions
 My two issues that I needed assistance on were getting the EDIT view with PUT method in the Wines controller working due to the many-to-many relationship and using checkboxes.  The other was understanding the right approach on the App Configuration backend and how I would need to setup the routes file to acheive my goal.
