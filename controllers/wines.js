@@ -119,7 +119,7 @@ const renderNew = (req, res) => {
                                             note: allNotes,
                                             seller: allSellers,   
                                             // wineNoteIds
-                                        });
+                                        }); 
                                     })
                             })
                     })
