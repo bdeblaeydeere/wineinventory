@@ -231,6 +231,7 @@ const editWine = (req, res) => {
                 NoteWine.create({noteId:req.body.notes, wineId: req.params.index})
             }
             else {
+                //They have removed all tasting notes related to this wine 
                 NoteWine.destroy({ where: { wineId: req.params.index } });
 
             }

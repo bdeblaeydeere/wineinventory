@@ -42,18 +42,6 @@ const countryIndex = (req, res) => {
         })
 }
 
-// const countryIndex = (req, res) => {
-//     Country.findAll({
-//         order: [
-//             ['countryName', 'ASC']
-//         ]
-//     })
-//         .then(countries => {
-//             res.render('configs/countryindex.ejs', {
-//                 countries
-//             })
-//         })
-// }
 
 //POST Country -create a new NEW Country in the Countries DB table
 const postCountry = (req, res) => {
@@ -75,19 +63,7 @@ const deleteCountry = (req, res) => {
     })
 }
 
-//Producer controllers
-// const producerIndex = (req, res) => {
-//     Producer.findAll({
-//         order: [
-//             ['producerName', 'ASC']
-//         ]
-//     })
-//         .then(producers => {
-//             res.render('configs/configindex.ejs', {
-//                 producers
-//             })
-//         })
-// }
+
 //POST Producer -create a new NEW Country in the Countries DB table
 const postProducer = (req, res) => {
     console.log("bob: ",req.body)
