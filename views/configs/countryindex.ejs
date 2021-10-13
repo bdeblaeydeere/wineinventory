@@ -44,7 +44,7 @@
           </div>
         </div>
       </nav>
-    <h1>Wine Inventory Configuration Page</h1>
+    <h1>Wine Inventory Configuration</h1>
 
 <!-- Starting class for cards -->
 <div class="card-group">
@@ -55,7 +55,8 @@
       <div class="card-body">
         <!-- <h4 class="card-title">Primary card title</h4> -->
         <form action="/configs/countries" method="POST">
-          Country: <input type="text" name="countryName">
+          Country: <br />
+          <input type="text" name="countryName"><br />
           <input type="submit" value="Add" />
         </form>
         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -68,7 +69,8 @@
       <div class="card-body">
         <!-- <h4 class="card-title">Primary card title</h4> -->
         <form action="/configs/producers" method="POST">
-          Producer: <input type="text" name="producerName">
+          Producer: <br />
+          <input type="text" name="producerName"><br />
           <input type="submit" value="Add" />
         </form>
         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -81,7 +83,8 @@
       <div class="card-body">
         <!-- <h4 class="card-title">Primary card title</h4> -->
         <form action="/configs/sellers" method="POST">
-          Seller: <input type="text" name="sellerName">
+          Seller: <br />
+          <input type="text" name="sellerName"><br />
           <input type="submit" value="Add" />
         </form>
         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -93,7 +96,8 @@
       <div class="card-body">
         <!-- <h4 class="card-title">Primary card title</h4> -->
         <form action="/configs/notes" method="POST">
-          Tasting Note: <input type="text" name="name">
+          Tasting Note: <br />
+          <input type="text" name="name"><br />
           <input type="submit" value="Add" />
         </form>
         <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -128,14 +132,14 @@
         <div class="card-header">Delete a Producer</div>
         <div class="card-body">
           <form action="/configs/producers?_method=DELETE" method="POST">
-            Producer:
+            Producer:<br />
             <select name="producerId">
               <% producers.forEach ((eachProducer, index)=> { %>
                 <option value="<%=producers[index].id%>">
                   <%=producers[index].producerName %>
                 </option>
                 <% }) %>
-            </Select>
+            </Select><br />
             <input type="submit" value="Delete" />
           </form>
           <!-- <h4 class="card-title">Primary card title</h4> -->
@@ -148,14 +152,14 @@
         <div class="card-header">Delete a Seller</div>
         <div class="card-body">
           <form action="/configs/sellers?_method=DELETE" method="POST">
-            Seller:
+            Seller:<br />
             <select name="sellerId">
               <% sellers.forEach ((eachSeller, index)=> { %>
                 <option value="<%=sellers[index].id%>">
                   <%=sellers[index].sellerName %>
                 </option>
                 <% }) %>
-            </Select>
+            </Select><br />
             <input type="submit" value="Delete" />
           </form>
           <!-- <h4 class="card-title">Primary card title</h4> -->
@@ -168,7 +172,7 @@
         <div class="card-header">Delete a Tasting Note</div>
         <div class="card-body">
           <form action="/configs/notes?_method=DELETE" method="POST">
-            Tasting Note:
+            Tasting Note:<br />
             <select name="noteId">
               <% notes.forEach ((eachNote, index)=> { %>
                 <option value="<%=notes[index].id%>">
