@@ -44,7 +44,7 @@
           </div>
         </div>
       </nav>
-    <h1>Wine Inventory Index Page</h1>
+    <h1>Wine Inventory Index</h1>
     <!-- <ol>
         <% wines.forEach ((wine, index) => { %>
         <li>
@@ -64,7 +64,7 @@
         <th scope="col">Type</th>
         <th scope="col">Year</th>
         <th scope="col">Color</th>
-        <th scope="col">ID</th>
+        <!-- <th scope="col">ID</th> -->
         <!-- <td>Producer</td><td>Type</td><td>Year</td><td>ID</td> -->
     </tr>
 </thead>
@@ -76,7 +76,7 @@
             <td> <a href="/wines/<%= wine.id %>"><%= wine.name %> </a></td> 
             <td> <a href="/wines/<%= wine.id %>"><%= wine.year %></a></td>
             <td><a href="/wines/<%= wine.color %>"><%= wine.color %></a>   </td>
-            <td><a href="/wines/<%= wine.id %>"><%= wine.id %></a>   </td>
+            <!-- <td><a href="/wines/<%= wine.id %>"><%= wine.id %></a>   </td> -->
         </tr>
         <% }) %>
     </tbody>
