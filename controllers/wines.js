@@ -110,12 +110,30 @@ const renderNew = (req, res) => {
 }
 //POST create a New Wine in the Wines DB table
 const postWine = (req, res) => {
-    let wineNoteIds = req.body.notes.split(',');
+    // let wineNoteIds = req.body.wineNoteIds.split(',');
     console.log(req.body)
     Wine.create (req.body)
     .then (wine => {
         res.redirect('/wines') 
     })
+//     .then((createdWine) => {
+//         //this checks for multiple tasting notes
+//          if (Array.isArray(req.body.notes)) {
+//               req.body.notes.forEach((n) => {
+//                  NoteWine.create({ noteId: n });
+//              });
+//          }
+//          else if (req.body.notes >= 1) {
+//              //this checks for only one tasting note 
+//              // console.log("Hi Bob", req.body.notes)
+//              NoteWine.create({noteId:req.body.notes})
+//          }
+//          else {
+//              NoteWine.destroy({ where: { wineId: req.params.index } });
+
+//          }
+//      });
+//  res.redirect('/wines');
 }
 
 //Render Edit page - render the page to allow editing of an existing wine in the Wines DB table
@@ -251,4 +269,5 @@ module.exports = {
     deleteWine,
     renderEdit,
     editWine,
+    
 };

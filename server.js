@@ -15,6 +15,9 @@ app.use(express.urlencoded({ extended: true}))
 //We'll be adding a query parameter to our delete form named _method
 app.use(methodOverride('_method'));
 
+app.get('/', (req,res) =>  {
+    res.redirect('/tabs')
+  })
 app.use('/wines', routes.wines)
 app.use('/configs', routes.configs)
 // //Default get page setup

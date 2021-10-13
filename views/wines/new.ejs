@@ -104,13 +104,13 @@
 </Select>
 </ul>
 
-<ul>Tasting notes: <br />
+<!-- <ul>Tasting notes: <br />
     <% note.forEach(n => { %> <input type="checkbox" name="notes" id="<%= n.id %>" value="<%=n.id%>"/> 
-             <label>
+    wineNoteIds.includes(n.id) ? 'checked' : ''  />   <label>
             <%=n.name%>
         </label><br />
         <% }) %>
-</ul>
+</ul> -->
 <ul>Your rating: <input type="number" name="rating" value="<%= wine.rating %>" max="5" min="0" step=".1">
     out of 5.0</ul>
 
