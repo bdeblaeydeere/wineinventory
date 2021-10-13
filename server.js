@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(methodOverride('_method'));
 
 app.get('/', (req,res) =>  {
-    res.redirect('/tabs')
+    res.redirect('/wines')
   })
 app.use('/wines', routes.wines)
 app.use('/configs', routes.configs)

@@ -64,6 +64,7 @@
         <th scope="col">Type</th>
         <th scope="col">Year</th>
         <th scope="col">Color</th>
+        <th scope="col">Quantity</th>
         <!-- <th scope="col">ID</th> -->
         <!-- <td>Producer</td><td>Type</td><td>Year</td><td>ID</td> -->
     </tr>
@@ -76,6 +77,7 @@
             <td> <a href="/wines/<%= wine.id %>"><%= wine.name %> </a></td> 
             <td> <a href="/wines/<%= wine.id %>"><%= wine.year %></a></td>
             <td><a href="/wines/<%= wine.color %>"><%= wine.color %></a>   </td>
+            <td><a href="/wines/<%= wine.quantity %>"><%= wine.quantity %></a>   </td>
             <!-- <td><a href="/wines/<%= wine.id %>"><%= wine.id %></a>   </td> -->
         </tr>
         <% }) %>
