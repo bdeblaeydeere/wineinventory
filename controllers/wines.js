@@ -5,6 +5,7 @@ const Seller = require('../models').Seller;
 const Note = require('../models').Note;
 const NoteWine = require('../models').NoteWine;
 
+
 //Index Route
 const index = (req, res) => {
     Wine.findAll({
@@ -17,17 +18,18 @@ const index = (req, res) => {
         {
             model: Seller,
         }
-        ],
-        //Add order to sort 
-        order: [
-            ['year', 'DESC']
-        ]
-    })
-        .then(wines => {
+    ],
+    //Add order to sort 
+    order: [
+        ['year', 'DESC']
+    ]
+})
+        .then(wines => {      
             res.render('wines/index.ejs', {
                 wines: wines,
-            })
+            
         })
+    })
 }
 
         // const index = (req, res) => {
