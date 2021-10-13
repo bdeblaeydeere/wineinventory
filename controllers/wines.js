@@ -87,13 +87,29 @@ const renderNew = (req, res) => {
         ],
     })
         .then(wine => {
-            Country.findAll()
+            Country.findAll({
+                order: [
+                    ['countryName', 'ASC']
+                ],
+            })
             .then(allCountries => {
-                Producer.findAll()
+                Producer.findAll({
+                    order: [
+                        ['producerName', 'ASC']
+                    ],
+                })
                     .then(allProducers => {
-                        Note.findAll()
+                        Note.findAll({
+                            order: [
+                                ['name', 'ASC']
+                            ],
+                        })
                             .then(allNotes => {
-                                Seller.findAll()
+                                Seller.findAll({
+                                    order: [
+                                        ['sellerName', 'ASC']
+                                    ],
+                                })
                                     .then(allSellers => {
                                         // let wineNoteIds = wine.Notes.map((n) => n.id);
                                         res.render('wines/new.ejs', {
